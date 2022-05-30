@@ -1,0 +1,16 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: {{ include "simple-web-dar.fullname" . }}
+spec:
+  scaleTargetRef:
+    name: {{ include "simple-web-dar.fullname" . }}
+  pollingInterval: {{.Values.keda.pollingInterval}}
+  cooldownPeriod: {{.Values.keda.cooldownPeriod}}
+  minReplicaCount: 1
+  maxReplicaCount: {{ .Values.keda.maxReplicaCount }}
+  triggers:
+  - type: cpu
+    metadata:
+      type: Utilization
+      value: "5"
