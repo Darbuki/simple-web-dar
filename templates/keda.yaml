@@ -14,3 +14,12 @@ spec:
     metadata:
       type: Utilization
       value: "5"
+  - type: memory
+    metadata:
+      type: Utilization
+      value: "5"
+  - type: cron
+    metadata:
+      timezone: Asia/Jerusalem
+      start: 0 8 * * *
+      end: 0 12 * * *

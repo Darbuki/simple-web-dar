@@ -1,0 +1,19 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: simple-web-scaled-object
+  namespace:
+  labels:
+    deploymentName: simple-web-dar
+spec:
+  scaleTargetRef:
+    name: simple-web-dar
+  pollingInterval: 5
+  cooldownPeriod: 30
+  minReplicaCount: 2
+  maxReplicaCount: 5
+  triggers:
+    - type: cpu
+      metadata:
+        type: Utilization
+        value: "1"
