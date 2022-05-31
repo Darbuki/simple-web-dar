@@ -76,5 +76,3 @@ keda:
   pollingInterval: 10
   cooldownPeriod: 30
   maxReplicaCount: 5
-  cpuValue: 5
-  memoryValue: 5

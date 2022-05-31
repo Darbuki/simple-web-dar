@@ -13,11 +13,11 @@ spec:
   - type: cpu
     metadata:
       type: Utilization
-      value: {{.Values.keda.cpuValue}}
+      value: "5"
   - type: memory
     metadata:
       type: Utilization
-      value: {{.Values.keda.memoryValue}}
+      value: "5"
   - type: cron
     metadata:
       timezone: Asia/Jerusalem
