@@ -1,0 +1,25 @@
+        stage('deploy'){
+            when{
+                expression {params.deploy_destroy == 'deploy'}
+            }
+            steps('get chart from github and deploy'){
+                git branch: 'main', credentialsId: '1111', url: 'https://github.com/Darbuki/simple-web-dar'
+                sh "helm install ${env.chartName} . --namespace ${env.nameSpace}"
+            }
+            
+            
+            
+        }
+        stage('destroy')
+        {
+            when{
+                expression {params.deploy_destroy == 'destroy'}
+            }
+            steps('uninstall helm'){
+                sh "helm uninstall ${env.chartName} --namespace ${env.nameSpace}"
+            }
+        }
+            
+            
+        }
+}
