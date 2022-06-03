@@ -4,7 +4,7 @@
             }
             steps('get chart from github and deploy'){
                 git branch: 'main', credentialsId: '1111', url: 'https://github.com/Darbuki/simple-web-dar'
-                sh "helm install ${env.chartName} . --namespace ${env.nameSpace}"
+                sh "helm upgrade ${env.chartName} ${env.chartName} --install --namespace ${env.nameSpace}"
             }
             
             
